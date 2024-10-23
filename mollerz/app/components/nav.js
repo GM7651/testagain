@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false); // To ensure this only runs on the client
 
   // Function to detect scroll and adjust navbar size
   useEffect(() => {
+    setMounted(true); // Marks the component as mounted after the initial render
+
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setIsScrolled(true); // Shrink navbar
@@ -16,10 +20,16 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Avoid rendering during server-side rendering
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <nav
@@ -30,12 +40,12 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center p-4 lg:px-6 xl:px-8">
         {/* Logo */}
         <div className="flex flex-col items-center justify-center w-full md:w-auto md:pl-0 lg:relative lg:m-0 lg:h-full lg:px-0 lg:flex lg:justify-start">
-          <img
+          <Image
             src="/moller3.png"
-            alt="Moller's Logo"
-            className={`transition-all duration-300 ${
-              isScrolled ? 'w-24' : 'w-64'
-            } h-auto shadow-lg`}
+            alt="Moller&#39;s Logo" // Escaped single quote
+            width={isScrolled ? 96 : 256} // Use dynamic values based on `isScrolled`
+            height={isScrolled ? 96 : 256}
+            className="transition-all duration-300 shadow-lg"
           />
         </div>
 

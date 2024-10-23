@@ -19,29 +19,30 @@ export default function Home() {
 
 
   useEffect(() => {
+    const currentRef = textRef.current; // Save the current value of the ref
+  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true);  // Show the text as soon as it's slightly visible
+            setIsVisible(true); // Show the text as soon as it's slightly visible
           }
         });
       },
       {
-        threshold: 0,  // Trigger when any part of the element is in view
-        rootMargin: '0px 0px -200px 0px'  // Make it trigger 200px before it enters the viewport
+        threshold: 0, // Trigger when any part of the element is in view
+        rootMargin: '0px 0px -200px 0px', // Make it trigger 200px before it enters the viewport
       }
     );
-
-    if (textRef.current) {
-      observer.observe(textRef.current);
+  
+    if (currentRef) {
+      observer.observe(currentRef);
     }
-
+  
     return () => {
-      if (textRef.current) observer.unobserve(textRef.current);
+      if (currentRef) observer.unobserve(currentRef); // Use the stored ref value
     };
   }, []);
-
 
 
   return (
@@ -55,15 +56,17 @@ export default function Home() {
         <div className="w-full">
         </div>      
         <section className="mt-24">
-      <div className="bg-black text-white py-20">
+      <div className="bg-black text-white py-16">
         <div className="container mx-auto flex flex-col md:flex-row items-center my-12 md:my-24">
           <div className="flex flex-col w-full lg:w-1/3 justify-center items-start p-8">
           <div className="flex items-center">
-              <img 
-                src="/moller2.png" 
-                alt="Möller's Logo" 
-                className="w-72 h-54 mr-4"  // Adjust width, height, and margin as needed
-              />
+               <Image
+                  className="inline-block mt-24 md:mt-0   p-8 md:p-0"
+                  src="/moller2.png"  // Remove 'public' from the path
+                  alt="Tech Image 2"
+                  width={300}
+                  height={300}
+                />
 
             </div>
             <h2 className="text-3xl md:text-5xl leading-relaxed md:leading-snug mb-2">
@@ -186,7 +189,7 @@ export default function Home() {
                           isVisible ? 'animate-slideIn' : 'opacity-0'
                         }`}
                       >
-                        Shija e Shijshme e Vajit të Mëlçisë Möller's: Shije e Vlerësuar dhe Cilësi e Lartë
+                        Shija e Shijshme e Vajit të Mëlçisë Möller&#39;s: Shije e Vlerësuar dhe Cilësi e Lartë
                       </h2>
                       <p
                         className={`mt-4 text-lg text-gray-900 transition-transform duration-1000 ${
@@ -194,8 +197,8 @@ export default function Home() {
                         }`}
                       >
                         Nëse po pyesni për vajin e mëlçisë së merlucit nëse është i shijshëm, përgjigja është PO! Në të kaluarën shija nuk ishte e mirë.
-                        Möller's dëshmon të kundërtën: të tre shijet (Limon, Tutti Frutti, Mollë) janë vlerësuar me Çmimin Superior për Shijen më të Mirë.
-                        Möller's Omega-3 është vaj i pastër i mëlçisë së merlucit, që do të thotë se vaji merret vetëm nga mëlçia e peshkut të freskët dhe
+                        Möller&#39;s dëshmon të kundërtën: të tre shijet (Limon, Tutti Frutti, Mollë) janë vlerësuar me Çmimin Superior për Shijen më të Mirë.
+                        Möller&#39;s Omega-3 është vaj i pastër i mëlçisë së merlucit, që do të thotë se vaji merret vetëm nga mëlçia e peshkut të freskët dhe
                         përfundon menjëherë në shishen e gjelbër, kështu që pothuajse asnjë oksidim nuk është i mundur. Më pas shtohet shija përkatëse
                         natyrale dhe vitaminat A, D, dhe E. Një këshillë e vogël për ju: Mbajeni shishen në frigorifer pas hapjes.
                       </p>
@@ -261,7 +264,7 @@ export default function Home() {
       isVisible ? 'animate-slideIn' : 'opacity-0'
     }`}
   >
-    Möller's Forte Omega-3      
+    Möller&#39;s Forte Omega-3      
   </h2>
   <p
     className={`mt-4 text-lg text-gray-900 transition-transform duration-1000 ${
@@ -389,14 +392,14 @@ export default function Home() {
               isVisible ? 'animate-slideIn' : 'animate-slideOut'
             }`}
         >
-           Shëndet i Plotë në Një Kuti: Möller's Total Omega-3, Multivitamina dhe Minerale     
+           Shëndet i Plotë në Një Kuti: Möller&#39;s Total Omega-3, Multivitamina dhe Minerale     
         </h2>
         <p
                       className={`mt-4 text-lg text-black transition-transform duration-1000 ${
                        isVisible ? 'animate-slideIn delay-200' : 'animate-slideOut'
                        }`}
                       >
-                        Möller's Total është një suplement ushqimor kompleks që përmban kombinimin optimal të acideve yndyrore omega-3, si dhe vitamina, minerale dhe antioksidantë.
+                        Möller&#39;s Total është një suplement ushqimor kompleks që përmban kombinimin optimal të acideve yndyrore omega-3, si dhe vitamina, minerale dhe antioksidantë.
                          "Gjithçka që nevojitet për organizmin tuaj në NJË KUTI" (Omega-3 + multivitamina + minerale)
                         </p>
             
@@ -424,11 +427,16 @@ export default function Home() {
 
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="#">
-            <img src="/img7.png" 
-                    alt="Product" className="h-80 w-40 ml-14 object-cover rounded-t-xl" />
+        <Image 
+            src="/img7.png"
+            alt="Product" 
+            width={160} // Corresponds to `w-40` (in pixels)
+            height={320} // Corresponds to `h-80` (in pixels)
+            className="ml-14 object-cover rounded-t-xl" 
+          />
             <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">MÖLLER'S</span>
-                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">MÖLLER'S Cod Liver Oil Os-3 tutti-frutti flavor</p>
+                <span className="text-gray-400 mr-3 uppercase text-xs">Möller&#39;s</span>
+                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">Möller&#39;s Cod Liver Oil Os-3 tutti-frutti flavor</p>
                 <div className="flex items-center">
                    
                     
@@ -439,11 +447,16 @@ export default function Home() {
 
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="#">
-            <img src="/img8.png" 
-                    alt="Product" className="h-80 w-40 ml-14 object-cover rounded-t-xl" />
+        <Image 
+            src="/img7.png"
+            alt="Product" 
+            width={160} // Corresponds to `w-40` (in pixels)
+            height={320} // Corresponds to `h-80` (in pixels)
+            className="ml-14 object-cover rounded-t-xl" 
+          />
             <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">MÖLLER'S</span>
-                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">MÖLLER'S Omega-3 Fish, strawberry, 36 jellies</p>
+                <span className="text-gray-400 mr-3 uppercase text-xs">Möller&#39;s</span>
+                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">Möller&#39;s Omega-3 Fish, strawberry, 36 jellies</p>
                 <div className="flex items-center">
                    
                     
@@ -454,10 +467,15 @@ export default function Home() {
 
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="#">
-            <img src="/img9.png" 
-                    alt="Product" className="h-80 w-40 ml-14 object-cover rounded-t-xl" />
+        <Image 
+            src="/img9.png"
+            alt="Product" 
+            width={160} // Corresponds to `w-40` (in pixels)
+            height={320} // Corresponds to `h-80` (in pixels)
+            className="ml-14 object-cover rounded-t-xl" 
+          />
             <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">MÖLLER'S</span>
+                <span className="text-gray-400 mr-3 uppercase text-xs">Möller&#39;s</span>
                 <p className="text-lg font-bold text-black text-wrap truncate block capitalize">Möller’s Cod Liver Oil Omega-3 lemon flavor</p>
                 <div className="flex items-center">
                    
@@ -469,10 +487,15 @@ export default function Home() {
 
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="#">
-            <img src="/img10.png" 
-                    alt="Product" className="h-80 w-40 ml-14 object-cover rounded-t-xl" />
+        <Image 
+            src="/img10.png"
+            alt="Product" 
+            width={160} // Corresponds to `w-40` (in pixels)
+            height={320} // Corresponds to `h-80` (in pixels)
+            className="ml-14 object-cover rounded-t-xl" 
+          />
             <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">MÖLLER'S</span>
+                <span className="text-gray-400 mr-3 uppercase text-xs">Möller&#39;s</span>
                 <p className="text-lg font-bold text-black text-wrap truncate block capitalize">Möller’s Omega-3 Jelly Fish Cola</p>
                 <div className="flex items-center">
                    
@@ -483,11 +506,16 @@ export default function Home() {
     </div>
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="#">
-            <img src="/img7.png" 
-                    alt="Product" className="h-80 w-40 ml-14 object-cover rounded-t-xl" />
+        <Image 
+            src="/img7.png"
+            alt="Product" 
+            width={160} // Corresponds to `w-40` (in pixels)
+            height={320} // Corresponds to `h-80` (in pixels)
+            className="ml-14 object-cover rounded-t-xl" 
+          />
             <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">MÖLLER'S</span>
-                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">MÖLLER'S COD LIVER OIL OMEGA-3 tutti-frutti flavor</p>
+                <span className="text-gray-400 mr-3 uppercase text-xs">Möller&#39;s</span>
+                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">Möller&#39;s COD LIVER OIL OMEGA-3 tutti-frutti flavor</p>
                 <div className="flex items-center">
                    
                     
@@ -498,11 +526,16 @@ export default function Home() {
 
     <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
         <a href="#">
-            <img src="/img7.png" 
-                    alt="Product" className="h-80 w-40 ml-14 object-cover rounded-t-xl" />
+            <Image 
+            src="/img7.png"
+            alt="Product" 
+            width={160} // Corresponds to `w-40` (in pixels)
+            height={320} // Corresponds to `h-80` (in pixels)
+            className="ml-14 object-cover rounded-t-xl" 
+          />
             <div className="px-4 py-3 w-72">
-                <span className="text-gray-400 mr-3 uppercase text-xs">MÖLLER'S</span>
-                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">MÖLLER'S COD LIVER OIL OMEGA-3 tutti-frutti flavor</p>
+                <span className="text-gray-400 mr-3 uppercase text-xs">Möller&#39;s</span>
+                <p className="text-lg font-bold text-black text-wrap truncate block capitalize">Möller&#39;s COD LIVER OIL OMEGA-3 tutti-frutti flavor</p>
                 <div className="flex items-center">
                    
                     
