@@ -185,23 +185,20 @@ export default function Home() {
                       </div>
                       <div className="mt-6" ref={textRef}>
                       <h2
-                        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight  text-transparent bg-gradient-to-b from-green-900 to-green-700 bg-clip-text transition-transform duration-1000 ${
-                          isVisible ? 'animate-slideIn' : 'opacity-0'
-                        }`}
-                      >
-                        Shija e Shijshme e Vajit të Mëlçisë Möller&#39;s: Shije e Vlerësuar dhe Cilësi e Lartë
-                      </h2>
+    className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight  text-transparent bg-gradient-to-b from-green-900 to-green-700 bg-clip-text transition-transform duration-1000 ${
+      isVisible ? 'animate-slideIn' : 'opacity-0'
+    }`}
+  >
+    Shija e Shijshme e Vajit të Mëlçisë Möller&apos;s: Shije e Vlerësuar dhe Cilësi e Lartë
+</h2>
                       <p
-                        className={`mt-4 text-lg text-gray-900 transition-transform duration-1000 ${
-                          isVisible ? 'animate-slideIn delay-200' : 'opacity-0'
-                        }`}
-                      >
-                        Nëse po pyesni për vajin e mëlçisë së merlucit nëse është i shijshëm, përgjigja është PO! Në të kaluarën shija nuk ishte e mirë.
-                        Möller&#39;s dëshmon të kundërtën: të tre shijet (Limon, Tutti Frutti, Mollë) janë vlerësuar me Çmimin Superior për Shijen më të Mirë.
-                        Möller&#39;s Omega-3 është vaj i pastër i mëlçisë së merlucit, që do të thotë se vaji merret vetëm nga mëlçia e peshkut të freskët dhe
-                        përfundon menjëherë në shishen e gjelbër, kështu që pothuajse asnjë oksidim nuk është i mundur. Më pas shtohet shija përkatëse
-                        natyrale dhe vitaminat A, D, dhe E. Një këshillë e vogël për ju: Mbajeni shishen në frigorifer pas hapjes.
-                      </p>
+                          className={`mt-4 text-lg text-gray-900 transition-transform duration-1000 ${
+                            isVisible ? 'animate-slideIn delay-200' : 'opacity-0'
+                          }`}
+                        >
+                          Nëse po pyesni për vajin e mëlçisë së merlucit nëse është i shijshëm, përgjigja është PO! Në të kaluarën shija nuk ishte e mirë. 
+                          Möller&apos;s dëshmon të kundërtën: të tre shijet (Limon, Tutti Frutti, Mollë) janë vlerësuar me Çmimin Superior për Shijen më të Mirë.
+                        </p>
                         </div>
                       
                   </div>
@@ -259,13 +256,13 @@ export default function Home() {
                   </div>
           <div className="mt-6">
           <div className="mt-6" ref={textRef}>
-  <h2
-    className={`-mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-transparent bg-gradient-to-t from-green-900 to-green-600 bg-clip-text transition-transform duration-1000 ${
-      isVisible ? 'animate-slideIn' : 'opacity-0'
-    }`}
-  >
-    Möller&#39;s Forte Omega-3      
-  </h2>
+          <h2
+  className={`-mt-2 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-transparent bg-gradient-to-t from-green-900 to-green-600 bg-clip-text transition-transform duration-1000 ${
+    isVisible ? 'animate-slideIn' : 'opacity-0'
+  }`}
+>
+  Möller&apos;s Forte Omega-3
+</h2>
   <p
     className={`mt-4 text-lg text-gray-900 transition-transform duration-1000 ${
       isVisible ? 'animate-slideIn delay-200' : 'opacity-0'
@@ -387,21 +384,20 @@ export default function Home() {
                     </svg>
                   </div>          
                    <div className="mt-6">
-                  <h2
-            className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight  text-transparent bg-gradient-to-b from-green-500 to-green-700 bg-clip-text transition-transform duration-1000 ${
-              isVisible ? 'animate-slideIn' : 'animate-slideOut'
-            }`}
-        >
-           Shëndet i Plotë në Një Kuti: Möller&#39;s Total Omega-3, Multivitamina dhe Minerale     
-        </h2>
-        <p
-                      className={`mt-4 text-lg text-black transition-transform duration-1000 ${
-                       isVisible ? 'animate-slideIn delay-200' : 'animate-slideOut'
-                       }`}
-                      >
-                        Möller&#39;s Total është një suplement ushqimor kompleks që përmban kombinimin optimal të acideve yndyrore omega-3, si dhe vitamina, minerale dhe antioksidantë.
-                         "Gjithçka që nevojitet për organizmin tuaj në NJË KUTI" (Omega-3 + multivitamina + minerale)
-                        </p>
+                   <h2
+  className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight  text-transparent bg-gradient-to-b from-green-500 to-green-700 bg-clip-text transition-transform duration-1000 ${
+    isVisible ? 'animate-slideIn' : 'animate-slideOut'
+  }`}
+>
+  Shëndet i Plotë në Një Kuti: Möller&apos;s Total Omega-3, Multivitamina dhe Minerale
+</h2>
+<p
+  className={`mt-4 text-lg text-black transition-transform duration-1000 ${
+    isVisible ? 'animate-slideIn delay-200' : 'animate-slideOut'
+  }`}
+>
+  Möller&apos;s Total është një suplement ushqimor kompleks që përmban kombinimin optimal të acideve yndyrore omega-3, si dhe vitamina, minerale dhe antioksidantë.
+</p>
             
           </div>
         </div>

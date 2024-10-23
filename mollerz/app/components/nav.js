@@ -58,24 +58,15 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/services" className="text-black">
-              Services
-            </Link>
+            Why Möller&apos;s?            </Link>
           </li>
           <li>
             <Link href="/about" className="text-black">
               About
             </Link>
           </li>
-          <li>
-            <Link href="/projects" className="text-black">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link href="/skills" className="text-black">
-              Skills
-            </Link>
-          </li>
+         
+          
           <li>
             <Link href="/contacts" className="text-black">
               Contacts
@@ -117,24 +108,15 @@ const Navbar = () => {
           </li>
           <li>
             <Link href="/services" className="text-black block py-2">
-              Services
-            </Link>
+            Why Möller&apos;s?            </Link>
           </li>
           <li>
             <Link href="/about" className="text-black block py-2">
               About
             </Link>
           </li>
-          <li>
-            <Link href="/projects" className="text-black block py-2">
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link href="/skills" className="text-black block py-2">
-              Skills
-            </Link>
-          </li>
+          
+          
           <li>
             <Link href="/contacts" className="text-black block py-2">
               Contacts
